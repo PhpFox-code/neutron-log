@@ -1,5 +1,5 @@
 {
-  "name": "codelego/phpfox-logmanager",
+  "name": "codelego/phpfox-log-manager",
   "description": "PhpFox Cache Component",
   "type": "library",
   "license": "MIT",
