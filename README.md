@@ -1,1 +1,1 @@
-# phpfox-log
+# phpfox-log-manager
