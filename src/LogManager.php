@@ -10,5 +10,4 @@ namespace Phpfox\LogManager;
  */
 class LogManager
 {
-
 }

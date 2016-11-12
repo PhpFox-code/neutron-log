@@ -2,7 +2,6 @@
 
 namespace Phpfox\LogManager;
 
-
 /**
  * Interface StorageInterface
  *
