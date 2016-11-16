@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 /**
  * Class FilesystemWriter
  *
- * @package Phpfox\LogManager
+ * @package Phpfox\Log
  */
 class FilesystemLogger implements LoggerInterface
 {

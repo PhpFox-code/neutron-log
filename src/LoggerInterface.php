@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 /**
  * Interface LoggerInterface
  *
  * http://www.php-fig.org/psr/psr-3/#3-psr-log-loggerinterface
  *
- * @package Phpfox\LogManager
+ * @package Phpfox\Log
  */
 interface LoggerInterface
 {

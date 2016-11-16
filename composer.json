@@ -1,5 +1,5 @@
 {
-  "name": "codelego/phpfox-log-manager",
+  "name": "codelego/phpfox-log",
   "description": "Logging library for phpfox framework.",
   "type": "library",
   "license": "MIT",
@@ -12,12 +12,12 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Phpfox\\LogManager\\": "src/"
+      "Phpfox\\Log\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Phpfox\\LogManager\\": "test/"
+      "Phpfox\\Log\\": "test/"
     }
   }
 }

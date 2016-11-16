@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 /**
  * Describe log levels
@@ -10,7 +10,7 @@ namespace Phpfox\LogManager;
  * Define log level
  * EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO, DEBUG
  *
- * @package Phpfox\LogManager
+ * @package Phpfox\Log
  */
 final class Level
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 /**
  * Class LogManagerFactory
  *
- * @package Phpfox\LogManager
+ * @package Phpfox\Log
  */
 class LogManagerFactory
 {

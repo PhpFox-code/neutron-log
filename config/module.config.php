@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 return [
     'aliases'   => [],

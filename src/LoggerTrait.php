@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpfox\LogManager;
+namespace Phpfox\Log;
 
 
 /**
  * Class LoggerTrait
  *
- * @package Phpfox\LogManager
+ * @package Phpfox\Log
  */
 trait LoggerTrait
 {
