@@ -32,16 +32,16 @@ class LogManager implements LogManagerInterface
             : $this->containers[$id] = $this->build($id);
     }
 
-    public function set($id, LogContainer $container)
-    {
-        $this->containers[$id] = $container;
-    }
-
     public function build($id)
     {
         if ($id) {
             ;
         }
         return new LogContainer();
+    }
+
+    public function set($id, LogContainer $container)
+    {
+        $this->containers[$id] = $container;
     }
 }

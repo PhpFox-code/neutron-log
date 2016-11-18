@@ -5,6 +5,15 @@ namespace Phpfox\Log;
 
 class LogContainerTest extends \PHPUnit_Framework_TestCase
 {
+    public function testInfo()
+    {
+        $container = $this->getContainer();
+
+        $container->info('{1} test log level INFO', [0, 'Nam Nguyen']);
+        $container->debug('{1} test log level DEBUG', [0, 'Nam Nguyen']);
+        $container->critical('{1} test log level CRITICAL', [0, 'Nam Nguyen']);
+    }
+
     public function getContainer()
     {
         $container = new LogContainer();
@@ -25,14 +34,5 @@ class LogContainerTest extends \PHPUnit_Framework_TestCase
         ]));
 
         return $container;
-    }
-
-    public function testInfo()
-    {
-        $container = $this->getContainer();
-
-        $container->info('{1} test log level INFO', [0, 'Nam Nguyen']);
-        $container->debug('{1} test log level DEBUG', [0, 'Nam Nguyen']);
-        $container->critical('{1} test log level CRITICAL', [0, 'Nam Nguyen']);
     }
 }

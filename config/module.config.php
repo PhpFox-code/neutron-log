@@ -3,7 +3,7 @@
 namespace Phpfox\Log;
 
 return [
-    'factories' => [
-        'log' => LogManagerFactory::class,
+    'services' => [
+        'log' => LogManager::class,
     ],
 ];
