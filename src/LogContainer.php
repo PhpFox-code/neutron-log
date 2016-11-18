@@ -7,141 +7,88 @@ namespace Phpfox\Log;
  *
  * @package Phpfox\Log
  */
-class LogContainer
+class LogContainer implements LogContainerInterface
 {
     /**
      * @var LoggerInterface[]
      */
-    protected $writers;
+    protected $loggers;
 
-    /**
-     * @param LoggerInterface $writer
-     *
-     * @return $this
-     */
-    public function add($writer)
+    public function add(LoggerInterface $logger)
     {
-        $this->writers[] = $writer;
+        $this->loggers[] = $logger;
         return $this;
     }
 
-    /**
-     * System is unusable
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function emergency($message)
+    public function emergency($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->emergency($message);
+        foreach ($this->loggers as $logger) {
+            $logger->emergency($message, $context);
         }
         return $this;
     }
 
-    /**
-     * action must be taken immediately
-     *
-     * @param string $message
-     *
-     * @return mixed
-     */
-    public function alert($message)
+    public function alert($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->alert($message);
+        foreach ($this->loggers as $logger) {
+            $logger->alert($message, $context);
         }
         return $this;
     }
 
-    /**
-     * Write alert-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function critical($message)
+    public function critical($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->critical($message);
+        foreach ($this->loggers as $logger) {
+            $logger->critical($message, $context);
         }
         return $this;
     }
 
-    /**
-     * Write error-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function error($message)
+    public function error($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->error($message);
+        foreach ($this->loggers as $logger) {
+            $logger->error($message, $context);
         }
         return $this;
     }
 
-    /**
-     * Write warning-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function warning($message)
+    public function warning($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->warning($message);
+        foreach ($this->loggers as $logger) {
+            $logger->warning($message, $context);
         }
         return $this;
     }
 
-    /**
-     * Write notice-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function notice($message)
+    public function notice($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->notice($message);
+        foreach ($this->loggers as $logger) {
+            $logger->notice($message, $context);
         }
         return $this;
     }
 
-    /**
-     * Write information-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function info($message)
+    public function info($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->info($message);
+        foreach ($this->loggers as $logger) {
+            $logger->info($message, $context);
         }
         return $this;
     }
 
-    /**
-     *
-     * Write debug-level messages
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function debug($message)
+    public function debug($message, $context = [])
     {
-        foreach ($this->writers as $writer) {
-            $writer->debug($message);
+        foreach ($this->loggers as $logger) {
+            $logger->debug($message, $context);
+        }
+        return $this;
+    }
+
+
+    public function log($level, $message, $context = [])
+    {
+        foreach ($this->loggers as $logger) {
+            $logger->log($level, $message, $context);
         }
         return $this;
     }
