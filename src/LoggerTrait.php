@@ -23,11 +23,11 @@ trait LoggerTrait
      * - Array: set of values "emergency, alert, critical, error, warning,
      * notice, info, debug"
      *
-     * @param string|array $accepts
+     * @param string $levels
      *
      * @return $this
      */
-    public function setAccepts($accepts)
+    public function filters($levels)
     {
 
         $allLevels = [
@@ -41,10 +41,13 @@ trait LoggerTrait
             "debug",
         ];
 
-
-        if ($accepts == '*') {
+        if (!$levels || $levels == '*') {
             $this->acceptLevels = $allLevels;
         } else {
+            $accepts = array_map(function ($v) {
+                return trim($v);
+            }, explode(',', strtolower($levels)));
+
             $this->acceptLevels = array_intersect($accepts, $allLevels);
             return $this;
         }

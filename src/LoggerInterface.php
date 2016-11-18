@@ -12,15 +12,6 @@ namespace Phpfox\Log;
 interface LoggerInterface
 {
     /**
-     * Accept log level
-     *
-     * @param string $level
-     *
-     * @return bool
-     */
-    public function accept($level);
-
-    /**
      * @param string $message
      * @param array  $context
      *

@@ -11,24 +11,28 @@ class FilesystemLogger implements LoggerInterface
 {
     use LoggerTrait;
 
-    protected $filename = '';
+    /**
+     * @var string
+     */
+    protected $filename;
 
     /**
      * FilesystemLogger constructor.
      *
-     * @param string $filename
-     * @param string $levels
+     * @param array $config
      */
-    public function __construct($filename, $levels = '*')
+    public function __construct($config)
     {
-        if (!file_exists($filename)) {
-            if (!is_dir($dir = dirname($filename))
-                && !@mkdir($dir, 0777, true)
-            ) {
-            }
-        }
-        $this->filename = $filename;
-        $this->setAccepts($levels);
+        $config = array_merge([
+            'filename' => 'main.log',
+            'accepts'  => '*',
+        ], $config);
+
+        $directory = realpath(__DIR__ . '/../../../../data/log');
+
+        $this->filename = $directory . DS . $config['filename'];
+
+        $this->filters($config['accepts']);
     }
 
     /**
@@ -43,8 +47,8 @@ class FilesystemLogger implements LoggerInterface
         if ($context) {
             $message = $this->interpolate($message, $context);
         }
-        return $level . ': ' . date('Y-m-d H:i:s') . PHP_EOL . $message . PHP_EOL
-        . PHP_EOL . PHP_EOL;
+        return $level . ': ' . date('Y-m-d H:i:s') . PHP_EOL . $message
+        . PHP_EOL . PHP_EOL . PHP_EOL;
     }
 
     protected function write($message)
