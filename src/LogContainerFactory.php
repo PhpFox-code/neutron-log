@@ -15,10 +15,9 @@ class LogContainerFactory
             $key = 'default';
         }
 
-        $log = config('log');
-
-        $drivers = $log['drivers'];
-        $loggerOptions = $log['containers'][$key];
+        $drivers = config('log.drivers');
+        $containers = config('log.containers');
+        $loggerOptions = $containers[$key];
 
         $container = new LogContainer();
 
@@ -26,7 +25,6 @@ class LogContainerFactory
             $driver = $drivers[$loggerOption['driver']];
             $container->add(new $driver($loggerOption));
         }
-
         return $container;
     }
 }
