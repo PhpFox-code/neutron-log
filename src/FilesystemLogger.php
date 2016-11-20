@@ -26,7 +26,7 @@ class FilesystemLogger implements LoggerInterface
         $config = array_merge([
             'filename' => 'main.log',
             'accepts'  => '*',
-        ], $config);
+        ], (array)$config);
 
         $directory = realpath(__DIR__ . '/../../../../data/log');
 
