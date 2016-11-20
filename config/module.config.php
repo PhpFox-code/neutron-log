@@ -4,6 +4,8 @@ namespace Phpfox\Log;
 
 return [
     'services' => [
-        'log' => LogManager::class,
+        'map' => [
+            'log' => [null, LogManager::class,],
+        ],
     ],
 ];
