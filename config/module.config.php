@@ -3,9 +3,22 @@
 namespace Phpfox\Log;
 
 return [
+    'log'      => [
+        'drivers'    => [
+            'filesystem' => FilesystemLogger::class,
+        ],
+        'containers' => [
+            'default' => [
+                [
+                    'driver'   => 'filesystem',
+                    'filename' => 'main.log',
+                ],
+            ],
+        ],
+    ],
     'services' => [
         'map' => [
-            'log' => [null, LogManager::class,],
+            'log' => [LogContainerFactory::class, null, 'default'],
         ],
     ],
 ];

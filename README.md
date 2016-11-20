@@ -25,10 +25,8 @@ Code    Level      Meaning
 __Example__
 
 ```php
-$logManager->add(new FilesystemWriter([...]));
-$logManager->add(new DatabaseWriter([...]));
-
-$logManager->debug('system unnable');
-
+$logContainer->add(new FilesystemWriter([...]));
+$logContainer->add(new DatabaseWriter([...]));
+$logContainer->debug('system unnable');
 //result: write to database & file system
 ```
