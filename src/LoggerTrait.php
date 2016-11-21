@@ -19,19 +19,19 @@ trait LoggerTrait
 
     public function setLevel($level)
     {
-        $this->level = Level::getNumber(strtolower($level));
+        $this->level = LogLevel::getNumber(strtolower($level));
     }
 
     public function emergency($message, $context = [])
     {
-        $this->write($this->format(Level::EMERGENCY, $message, $context));
+        $this->write($this->format(LogLevel::EMERGENCY, $message, $context));
         return $this;
     }
 
     public function alert($message, $context = [])
     {
-        if ($this->accept(Level::ALERT)) {
-            $this->write($this->format(Level::ALERT, $message, $context));
+        if ($this->accept(LogLevel::ALERT)) {
+            $this->write($this->format(LogLevel::ALERT, $message, $context));
         }
 
         return $this;
@@ -45,13 +45,13 @@ trait LoggerTrait
      */
     public function accept($level)
     {
-        return Level::getNumber($level) <= $this->level;
+        return LogLevel::getNumber($level) <= $this->level;
     }
 
     public function critical($message, $context = [])
     {
-        if ($this->accept(Level::CRITICAL)) {
-            $this->write($this->format(Level::CRITICAL, $message, $context));
+        if ($this->accept(LogLevel::CRITICAL)) {
+            $this->write($this->format(LogLevel::CRITICAL, $message, $context));
         }
 
         return $this;
@@ -59,47 +59,47 @@ trait LoggerTrait
 
     public function error($message, $context = [])
     {
-        if ($this->accept(Level::ERROR)) {
-            $this->write($this->format(Level::ERROR, $message, $context));
+        if ($this->accept(LogLevel::ERROR)) {
+            $this->write($this->format(LogLevel::ERROR, $message, $context));
         }
         return $this;
     }
 
     public function warning($message, $context = [])
     {
-        if ($this->accept(Level::WARNING)) {
-            $this->write($this->format(Level::WARNING, $message, $context));
+        if ($this->accept(LogLevel::WARNING)) {
+            $this->write($this->format(LogLevel::WARNING, $message, $context));
         }
         return $this;
     }
 
     public function notice($message, $context = [])
     {
-        if ($this->accept(Level::CRITICAL)) {
-            $this->write($this->format(Level::CRITICAL, $message, $context));
+        if ($this->accept(LogLevel::CRITICAL)) {
+            $this->write($this->format(LogLevel::CRITICAL, $message, $context));
         }
         return $this;
     }
 
     public function info($message, $context = [])
     {
-        if ($this->accept(Level::INFO)) {
-            $this->write($this->format(Level::INFO, $message, $context));
+        if ($this->accept(LogLevel::INFO)) {
+            $this->write($this->format(LogLevel::INFO, $message, $context));
         }
         return $this;
     }
 
     public function debug($message, $context = [])
     {
-        if ($this->accept(Level::DEBUG)) {
-            $this->write($this->format(Level::DEBUG, $message, $context));
+        if ($this->accept(LogLevel::DEBUG)) {
+            $this->write($this->format(LogLevel::DEBUG, $message, $context));
         }
         return $this;
     }
 
     public function log($level, $message, $context = [])
     {
-        if ($this->accept(Level::DEBUG)) {
+        if ($this->accept(LogLevel::DEBUG)) {
             $this->write($this->format($level, $message, $context));
         }
         return $this;

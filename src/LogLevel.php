@@ -21,7 +21,7 @@ namespace Phpfox\Log;
  *
  * @package Phpfox\Log
  */
-final class Level
+final class LogLevel
 {
     const EMERGENCY = 'emergency';
     const ALERT     = 'alert';
