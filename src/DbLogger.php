@@ -13,9 +13,9 @@ class DbLogger implements LoggerInterface
     protected $model;
 
     /**
-     * FilesystemLogger constructor.
+     * DbLogger constructor.
      *
-     * @param array $config
+     * @param $config
      */
     public function __construct($config)
     {
@@ -40,10 +40,15 @@ class DbLogger implements LoggerInterface
         if ($context) {
             $message = $this->interpolate($message, $context);
         }
+        $time = date('Y-m-d H:i:s');
+
         return [
             'level'   => $level,
             'message' => $message,
-            'created' => date('Y-m-d H:i:s'),
+            'created' => $time,
+            'updated' => $time,
+            'ip'      => isset($_SERVER['REMOTE_ADDR'])
+                ? $_SERVER['REMOTE_ADDR'] : '',
         ];
     }
 

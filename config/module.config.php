@@ -5,7 +5,7 @@ namespace Phpfox\Log;
 return [
     'log.drivers'    => [
         'filesystem' => FilesystemLogger::class,
-        'db' => DbLoger::class,
+        'db'         => DbLogger::class,
     ],
     'log.containers' => [
         'log.main' => [
