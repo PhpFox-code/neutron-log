@@ -11,46 +11,15 @@ namespace Phpfox\Log;
 trait LoggerTrait
 {
     /**
-     * @var array
+     * Default accept level is maximum
+     *
+     * @var
      */
-    protected $acceptLevels;
+    protected $level = 4;
 
-    /**
-     * Set accept levels, accept values, The writer will write to its storage
-     *if level matches.
-     *
-     * - "*" is meaning all level
-     * - Array: set of values "emergency, alert, critical, error, warning,
-     * notice, info, debug"
-     *
-     * @param string $levels
-     *
-     * @return $this
-     */
-    public function filters($levels)
+    public function setLevel($level)
     {
-
-        $allLevels = [
-            "emergency",
-            "alert",
-            "critical",
-            "error",
-            "warning",
-            "notice",
-            "info",
-            "debug",
-        ];
-
-        if (!$levels || $levels == '*') {
-            $this->acceptLevels = $allLevels;
-        } else {
-            $accepts = array_map(function ($v) {
-                return trim($v);
-            }, explode(',', strtolower($levels)));
-
-            $this->acceptLevels = array_intersect($accepts, $allLevels);
-            return $this;
-        }
+        $this->level = Level::getNumber(strtolower($level));
     }
 
     public function emergency($message, $context = [])
@@ -76,7 +45,7 @@ trait LoggerTrait
      */
     public function accept($level)
     {
-        return in_array($level, $this->acceptLevels);
+        return Level::getNumber($level) <= $this->level;
     }
 
     public function critical($message, $context = [])

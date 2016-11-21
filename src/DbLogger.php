@@ -2,19 +2,15 @@
 
 namespace Phpfox\Log;
 
-/**
- * Class FilesystemWriter
- *
- * @package Phpfox\Log
- */
-class FilesystemLogger implements LoggerInterface
+
+class DbLogger implements LoggerInterface
 {
     use LoggerTrait;
 
     /**
      * @var string
      */
-    protected $filename;
+    protected $model;
 
     /**
      * FilesystemLogger constructor.
@@ -24,14 +20,11 @@ class FilesystemLogger implements LoggerInterface
     public function __construct($config)
     {
         $config = array_merge([
-            'filename' => 'main.log',
-            'level'  => '*',
+            'model' => '',
+            'level' => 'debug',
         ], (array)$config);
 
-        $directory = realpath(__DIR__ . '/../../../../data/log');
-
-        $this->filename = $directory . DS . $config['filename'];
-
+        $this->model = $config['model'];
         $this->setLevel($config['level']);
     }
 
@@ -40,19 +33,23 @@ class FilesystemLogger implements LoggerInterface
      * @param string $message
      * @param array  $context
      *
-     * @return string
+     * @return array
      */
     public function format($level, $message, $context = [])
     {
         if ($context) {
             $message = $this->interpolate($message, $context);
         }
-        return $level . ': ' . date('Y-m-d H:i:s') . PHP_EOL . $message
-        . PHP_EOL . PHP_EOL . PHP_EOL;
+        return [
+            'level'   => $level,
+            'message' => $message,
+            'created' => date('Y-m-d H:i:s'),
+        ];
     }
 
-    protected function write($message)
+    protected function write($data)
     {
-        file_put_contents($this->filename, (string)$message, FILE_APPEND);
+        service('models')->get($this->model)->insert($data);
     }
+
 }
