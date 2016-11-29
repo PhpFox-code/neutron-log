@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 
 class LogContainerTest extends \PHPUnit_Framework_TestCase

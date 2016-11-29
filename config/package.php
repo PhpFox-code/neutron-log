@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 return [
     'log.drivers'    => [

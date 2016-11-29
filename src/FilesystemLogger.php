@@ -1,11 +1,11 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 /**
  * Class FilesystemWriter
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 class FilesystemLogger implements LoggerInterface
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 
 /**
  * Class LogContainer
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 interface LogContainerInterface extends LoggerInterface
 {

@@ -1,10 +1,10 @@
 <?php
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 /**
  * Class LoggerFactory
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 class LoggerFactory
 {

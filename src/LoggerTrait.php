@@ -1,12 +1,12 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 
 /**
  * Class LoggerTrait
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 trait LoggerTrait
 {

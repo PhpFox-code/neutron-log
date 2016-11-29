@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 /**
  * Describe log levels
@@ -19,7 +19,7 @@ namespace Phpfox\Log;
  * - info: 7
  * - debug: 8
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 final class LogLevel
 {

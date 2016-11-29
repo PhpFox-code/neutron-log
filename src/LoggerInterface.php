@@ -1,13 +1,13 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 /**
  * Interface LoggerInterface
  *
  * http://www.php-fig.org/psr/psr-3/#3-psr-log-loggerinterface
  *
- * @package Phpfox\Log
+ * @package Neutron\Log
  */
 interface LoggerInterface
 {

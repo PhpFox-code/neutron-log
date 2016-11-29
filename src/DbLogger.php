@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpfox\Log;
+namespace Neutron\Log;
 
 
 class DbLogger implements LoggerInterface
