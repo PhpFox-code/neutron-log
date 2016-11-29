@@ -1,5 +1,5 @@
 {
-  "name": "codelego/phpfox-log",
+  "name": "codelego/neutron-log",
   "description": "Logging library for phpfox framework.",
   "type": "library",
   "license": "MIT",
